@@ -1,3 +1,4 @@
+// //TODO: What dependencies do I need? NPMs? 
 // //installed npm list:
 
 // //npm i -y
@@ -6,7 +7,6 @@
 // //npm init
 // //npm install express
 
-// //TODO: What dependencies do I need? NPMs? 
 // //The first thing to do is to figure out waht dependencies I need.
 // //Will certainly need express for server base and fs for reading and writing file system. Not sure what else yet. 
 // //Thinking I will need path as well but less sure.
@@ -52,12 +52,13 @@
 //the fetch requests are not actually file pathing, they are network requests
 // module.exports = router;
 
+//!!!!!!!!!
 //commented out all code above after reformatting in test server. 
 //this one was having trouble connecting and my comments had gotten too messy, so it needed a full-fledged re-write
 
 const express = require('express');
 
-const PORT = 3001;
+const PORT = 3000;
 const app = express();
 
 app.use(express.json());
@@ -68,5 +69,5 @@ app.use(require('./routes/htmlRoute'));
 
 
 app.listen(PORT, () =>
-  console.log(`Example app listening at http://localhost:${PORT}`)
+  console.log(`Server is up at http://localhost:${PORT}`)
 );

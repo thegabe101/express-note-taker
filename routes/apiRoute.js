@@ -10,7 +10,7 @@ const uuid = require("uuid");
 
 
 //this is our primary "get" route, which will declare const data to read whatever is in the db JSON and response by parsing string into a JSON object 
-
+//still unsure whether or not I need sync on my read and writes. this method is still confusing to me. will try with and then without.
 //each one follows the same model though: action + path
 router.get("/api/notes", (req, res) => {
     const data = fs.readFileSync("./db/db.json");
@@ -23,6 +23,7 @@ router.get("/api/notes", (req, res) => {
 router.post("/api/notes", (req, res) => {
     //here is our package request
     const addOurNote = req.body;
+    //parses JSON read file db, allows us to grab object as ourNotes
     const ourNotes = JSON.parse(fs.readFileSync("./db/db.json"));
     
     //this value is used to identify our objects and due to its nature it is almost impossible that there will be "collision" issues duplicating another packet of information
@@ -35,11 +36,15 @@ router.post("/api/notes", (req, res) => {
     res.json(ourNotes);
 });
 
+
+//initially tried a filter here using req parameters id to create a const that would respond as a deleted note. ineffective
 router.delete("/api/notes/:id", (req, res) => {
     const ourNotes = JSON.parse(fs.readFileSync("./db/db.json"));
     const deletedNote = ourNotes.filter ((killNote) => killNote.id !== req.params.id);
-    fs.writeFileSync("./db/db.json", json.stringify)
+    fs.writeFileSync("./db/db.json", JSON.stringify)
     res.json(deletedNote);
 })
 
+//TODO: understand sync. tried to remove sync from all read write functions and seemed to destroy callback functions containing.
+//still need to export router as this path is also utilized by server.js.
 module.exports = router;
