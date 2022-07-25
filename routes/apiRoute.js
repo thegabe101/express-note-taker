@@ -1,6 +1,8 @@
 //require fs, uuid (which will be the unique id on our object package), and our router
+// const express = require("express");
 const express = require("express");
 const router = express.Router();
+// const router = require("express").Router();
 // const router = require("express").Router();
 const fs = require("fs");
 const uuid = require("uuid");
@@ -15,7 +17,7 @@ const uuid = require("uuid");
 //note that the verbs (get, post, etc) are technically referencing different routes because they are different actions.
 //each one follows the same model though: action + path
 router.get("/notes", (req, res) => {
-    const data = fs.readFile("./db/db.json");
+    const data = fs.readFileSync("./db/db.json");
     res.json(JSON.parse(data));
 });
 
@@ -25,7 +27,7 @@ router.get("/notes", (req, res) => {
 router.post("/notes", (req, res) => {
     //here is our package request
     const addOurNote = req.body;
-    const ourNotes = JSON.parse(fs.readFile("./db/db.json"));
+    const ourNotes = JSON.parse(fs.readFileSync("./db/db.json"));
     //this is where things get interesting: we will be generating a UUID (Universally Unique Identifier) with a 128-bit value.
     //the UUID references a network address (i.e. our host), a randomly generated component, and a timestamp for when it is "printed"
     //this value is used to identify our objects and due to its nature it is almost impossible that there will be "collision" issues duplicating another packet of information
@@ -34,8 +36,15 @@ router.post("/notes", (req, res) => {
     ourNotes.push(addOurNote);
     //writes stringified object to our db folder.json
     //responds with updated notes 
-    fs.writeFile("./db/db.json", JSON.stringify(ourNotes));
+    fs.writeFileSync("./db/db.json", JSON.stringify(ourNotes));
     res.json(ourNotes);
 });
+
+router.delete("/notes:id", (req, res) => {
+    const ourNotes = JSON.parse(fs.readFileSync("./db/db/json"));
+    const deleteNote = ourNotes.filter((rmvNote) => rmvNote.id !== req.params.id);
+    fs.writeFile("./db/db.json", JSON.stringify(deleteNote));
+    res.json(deleteNote);
+})
 
 module.exports = router;
