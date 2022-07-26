@@ -2,7 +2,7 @@
 const router = require('express').Router();
 const { json } = require('express');
 const fs = require("fs");
-const uuid = require("uuid");
+const uuid = require("uuidv4");
 
 //TODO: write three main functions to interact with our db: get, post, and delete
 //for anything but GET I will need a tool like insomnia or postman to test viability.
