@@ -1,6 +1,6 @@
 # express-note-taker
 
-## Video Walkthrough Link https://drive.google.com/file/d/15nS4FteYlbf63dtKkKVCFZ4hT8OhClmU/view
+## Video Walkthrough Link: https://drive.google.com/file/d/1H8ZBrJUNG0b_C5sXtf8Aluy8uD0i4lTs/view
 
 ## Table of Contents
 
@@ -34,11 +34,11 @@ This was a back-end project focused on creating the supporting database for a no
 
 ## Screenshots
 
-- ![Alt= Screenshot showing file explorer in VS code for the project.](./screenshots/screenshot1.jpg)
-- ![Alt= Screenshot showing how the user opens the integrated terminal.](./screenshots/screenshot2.jpg)
-- ![Alt= Screenshot showing running of node.js in command line and the beginning of inquirer.](./screenshots/screenshot3.jpg)
-- ![Alt= Screenshot showing completion of inquirer and generated document.](./screenshots/screenshot4.jpg)
-- ![Alt= Screenshot showing final resulting html document in default browser.](./screenshots/screenshot5.jpg)
+- ![Alt= Screenshot showing server page in VS Code.](./screenshots/screenshot1.jpg)
+- ![Alt= Screenshot showing user running the server using nodemon npm in the integrated terminal.](./screenshots/screenshot2.jpg)
+- ![Alt= Screenshot showing the home page open in the browser window.](./screenshots/screenshot3.jpg)
+- ![Alt= Screenshot showing user recording a note.](./screenshots/screenshot4.jpg)
+- ![Alt= Screenshot showing page after a note has been saved.](./screenshots/screenshot5.jpg)
 
 ## Credits
 
