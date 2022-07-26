@@ -26,11 +26,11 @@ This was a back-end project focused on creating the supporting database for a no
 
 ## Usage
 
-- In order to utilize this project, the user should expect to work from within the command line in a node. After opening an integrated terminal within the OOP Team Generator folder, they can run 'node index.js' and begin inquirer prompts. The user follows a series of prompts that will assume they work at a company with several roles (including asking their own role, which will auto fill as employee). Once the user is finished entering information about themselves and their coworkers, an html file named 'yourTeam.html' will be generated. This html file will display parameters for each employee input by the user in the command line prompt.
+- Using this app is quite simple once the user is in the browser. Once the index page is loaded, the user can click "get started" and this will take them to the notes page. Once they are there, they may click in the note title section in order to enter a title for their note, and in the body section in order to enter a body. Following, they may click the save button in the top right hand corner (floppy disk icon) in order to save the note, which will be served in the live server database and persist. Finally, they may click the trash can icon next to a saved note to delete the note and the plus icon in the top-right hand corner while writing a note in order to toss it and begin a note anew.
 
 ## Bugs
 
-- There are no known major bugs afflicting the program. However, the initial prompt called lines 38-52 that asks the user for their role at the company is not functioning correctly. The inquirer prompts will proceed regardless of what is entered, and user input on their own role does not change their employee card generated in the final html.
+- There are no known major bugs afflicting the program. I am not entirely sure the plus button in the upper right hand corner is working correctly. I am not sure what it was intended to do, but it currently starts a note anew if a user clicks it mid-note.
 
 ## Screenshots
 
