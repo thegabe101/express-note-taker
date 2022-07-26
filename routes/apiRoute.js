@@ -27,7 +27,7 @@ router.post("/api/notes", (req, res) => {
     const ourNotes = JSON.parse(fs.readFileSync("./db/db.json"));
     //this value is used to identify our objects and due to its nature it is almost impossible that there will be "collision" issues duplicating another packet of information
     //i'm not really which version to use- recommendation was v4, so we'll try that first.
-    addOurNote.id = uuid.v4();
+    addOurNote.id = uuid;
     ourNotes.push(addOurNote);
     //writes stringified object to our db folder.json
     //responds with updated notes 
