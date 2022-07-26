@@ -25,7 +25,6 @@ router.post("/api/notes", (req, res) => {
     const addOurNote = req.body;
     //parses JSON read file db, allows us to grab object as ourNotes
     const ourNotes = JSON.parse(fs.readFileSync("./db/db.json"));
-    
     //this value is used to identify our objects and due to its nature it is almost impossible that there will be "collision" issues duplicating another packet of information
     //i'm not really which version to use- recommendation was v4, so we'll try that first.
     addOurNote.id = uuid.v4();
@@ -38,11 +37,21 @@ router.post("/api/notes", (req, res) => {
 
 
 //initially tried a filter here using req parameters id to create a const that would respond as a deleted note. ineffective
+//will now try doing something similar: take note body list from db and req param: id. 
+//then pick out all the notes that DO NOT match the selected id. once this list is returned, rewrite the file as an updated db.json
+//essentially this is a rewrite of the list 
 router.delete("/api/notes/:id", (req, res) => {
-    const ourNotes = JSON.parse(fs.readFileSync("./db/db.json"));
-    const deletedNote = ourNotes.filter ((killNote) => killNote.id !== req.params.id);
-    fs.writeFileSync("./db/db.json", JSON.stringify)
-    res.json(deletedNote);
+    //note that ourNotes should be a let variable here because we will reassign it momentarily
+    let ourNotes = JSON.parse(fs.readFileSync("./db/db.json"));
+    const deletedNote = (req.params.id).toString();
+    //now we filter out (into an array) any notes that do NOT match the params.id
+    ourNotes = ourNotes.filter(eraseSelectedNote => {
+        //return them as a new id
+        return eraseSelectedNote.id != deletedNote;
+    })
+    //rewrite file
+    fs.writeFileSync("./db/db.json", JSON.stringify(ourNotes));
+    res.json(ourNotes);
 })
 
 //TODO: understand sync. tried to remove sync from all read write functions and seemed to destroy callback functions containing.
