@@ -2,6 +2,8 @@
 
 ## Video Walkthrough Link: https://drive.google.com/file/d/1H8ZBrJUNG0b_C5sXtf8Aluy8uD0i4lTs/view
 
+## Heroku Link: https://express-note-taker-gabe-2.herokuapp.com/
+
 ## Table of Contents
 
 - [Description](#description)
